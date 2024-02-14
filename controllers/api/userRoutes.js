@@ -1,3 +1,5 @@
+const express = require('express');
+const router = express.Router();
 // CREATE new user
 router.post('/', async (req, res) => {
     try {
