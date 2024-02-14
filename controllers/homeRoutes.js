@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+//Renders landing page when they go to home page.
 router.get('/', async (req, res) => {
     try {
 
