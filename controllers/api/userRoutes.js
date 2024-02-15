@@ -1,10 +1,19 @@
 //In all routes import whatever modal you are trying to affect
 const express = require('express');
 const router = express.Router();
-const { User } = ('../../models')
+const { User } = require('../../models');
 // const withAuth = require('../utils/auth');
 //This page handles user sign up, login and logout.
-
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll();
+    res.status(200).json(userData);
+    
+  } catch(err) {
+    console.log("NOTICE ME SENPAI", err);
+    res.status(500).json(err);
+  }
+});
 // Sign up
 router.post('/', async (req, res) => {
   try {
@@ -13,7 +22,7 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-    res.status(200);
+    res.status(200).json(dbUserData);
 
     // req.session.save(() => {
     //   req.session.loggedIn = true;
