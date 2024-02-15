@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     res.status(200).json(userData);
     
   } catch(err) {
-    console.log("NOTICE ME SENPAI", err);
     res.status(500).json(err);
   }
 });
@@ -28,7 +27,6 @@ router.post('/signup', async (req, res) => {
     //   req.session.loggedIn = true;
 
   } catch (err) {
-    console.log("NOTICE ME SENPAI", err);
     res.status(500).json(err);
 
   }
@@ -56,7 +54,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect password. Please try again!' });
+        .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
 
@@ -80,7 +78,7 @@ router.post('/logout', (req, res) => {
   // When the user logs out, destroy the session
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(200).json("ddddaw");
+      res.status(204).end();
     });
   } else {
     res.status(404).end();
