@@ -16,27 +16,21 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get('/login', async (req, res) => {
+  try {
 
-//Logout
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    // Remove the session variables
-    req.session.destroy(() => {
-      res.status(204).end();
+    // Send over the 'loggedIn' session variable to the 'homepage' template
+    res.render('login', {
+      // galleries,
+      // loggedIn: req.session.loggedIn,
     });
-  } else {
-    res.status(404).end();
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
-// Login route
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
-});
+
 
 module.exports = router;
 //The model stores data and its logic. 
