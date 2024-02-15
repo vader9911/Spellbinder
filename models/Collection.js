@@ -1,28 +1,31 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Collection extends Model{}
+class Collection extends Model { }
 
 Collection.init(
-   // TODO : define fields and columns for the cards 
+    // TODO : define fields and columns for the cards 
     {
         id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             autoIncrement: true,
-            primarykey: true
+            primaryKey: true,
         },
-        
+
         cards: {
-            type: DataTypes.ARRAY 
+            type: DataTypes.STRING,
         },
 
         user_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: 'User',
-                key:'id',
+                model: 'user',
+                key: 'id',
             },
-        }
+
+        },
     },
     {
         // TODO : Link to database connection
@@ -30,8 +33,8 @@ Collection.init(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        modelName: 'Collection'
-      }
+        modelName: 'collection'
+    }
 
 );
 
