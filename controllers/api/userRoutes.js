@@ -56,13 +56,14 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect password. Please try again!' });
       return;
     }
 
     // Create session variables based on the logged in user
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = dbUserData.id;
+      console.log(dbUserData.id)
       req.session.logged_in = true;
 
       res.json({ user: dbUserData, message: 'You are now logged in!' });
@@ -74,14 +75,18 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
+// Logout
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  // When the user logs out, destroy the session
+  if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.status(200).json("ddddaw");
     });
   } else {
     res.status(404).end();
   }
 });
+
+
 
 module.exports = router;
