@@ -17,7 +17,7 @@ const sess = {
   secret: 'Super secret secret',
   cookie: {
     // Stored in milliseconds
-    maxAge: 100 * 1000, // expires after 100 seconds
+    maxAge: 900 * 1000, // expires after 900 seconds
   },
   resave: false,
   saveUninitialized: true,
