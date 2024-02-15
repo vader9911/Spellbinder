@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     res.status(200).json(userData);
     
   } catch(err) {
-    console.log("NOTICE ME SENPAI", err);
     res.status(500).json(err);
   }
 });
@@ -28,7 +27,6 @@ router.post('/signup', async (req, res) => {
     //   req.session.loggedIn = true;
 
   } catch (err) {
-    console.log("NOTICE ME SENPAI", err);
     res.status(500).json(err);
 
   }
@@ -62,7 +60,8 @@ router.post('/login', async (req, res) => {
 
     // Create session variables based on the logged in user
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = dbUserData.id;
+      console.log(dbUserData.id)
       req.session.logged_in = true;
 
       res.json({ user: dbUserData, message: 'You are now logged in!' });
@@ -74,8 +73,10 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
+// Logout
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  // When the user logs out, destroy the session
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
@@ -83,5 +84,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+
 
 module.exports = router;
