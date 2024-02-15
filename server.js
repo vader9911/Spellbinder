@@ -9,9 +9,6 @@ const sequelize = require('./config/connection');
 // Import the custom helper methods
 const helpers = require('./utils/helpers');
 
-// Import collection model.js
-const Card = require ('./models/Collection');
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
