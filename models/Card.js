@@ -14,7 +14,7 @@ Card.init(
 
         scryfall_id:{
             type: DataTypes.UUID,
-            defaultValue: UUIDV4,
+            //defaultValue: UUIDV4,
         },
 
         oracle_text:{

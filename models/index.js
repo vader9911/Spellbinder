@@ -14,13 +14,13 @@ Collection.belongsTo(User, {
 
 //Create a many to many between collection and card
 Collection.belongsToMany(Card, {
-  through: 'CollectionCard',
-  //foreignKey: 'collection_id',
+  through: CollectionCard,
+  foreignKey: 'collection_id',
 });
 
-Card.hasMany(Collection, {
-  through: 'CollectionCard',
-  //foreignKey: 'card_id',
+Card.belongsToMany(Collection, {
+  through: CollectionCard,
+  foreignKey: 'card_id',
 });
 
 

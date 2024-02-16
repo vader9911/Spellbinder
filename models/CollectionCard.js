@@ -41,7 +41,7 @@ CollectionCard.init(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        modelName: 'collectionCard'
+        modelName: 'collection_card'
     }
 );
 
