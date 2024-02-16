@@ -7,7 +7,7 @@ $tekhelet: #612491ff;
 $veronica: #a020f0ff;
 $blue-violet: #7846cdff;
 $emerald: #00b862ff;
-$atomic-tangerine: #ff914dff;
+$atomic-tangerine: rgb(232, 122, 54);
 $taupe-gray: #898d98ff;
 $bleu-de-france: #1288e2ff;
 $logo-gradient: linear-gradient(to right, #fa702a, #faa739);
@@ -46,18 +46,32 @@ $dark: $gunmetal;
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 // Define your custom class and styles
-*   {
-    text-decoration: none;
-}
+
+
+// Override Bootstrap's hover styles for links with !important declaration
+
 
 .custom-font {
     font-family: 'Pirata One', sans-serif;
     color: $warning;
     font-size: 58pt;
     text-decoration: underline;
+    
+    // border: solid  1px;
+    // border-radius: 10px;
+    
 }
 
-.nav-button {
+nav .btn {
     text-decoration: none;
-    color: $taupe-gray;
+    text-align: center;
+    color: $white;
+    font-size: larger;
 }
+
+.btn:hover {
+    text-decoration: underline;
+    
+}
+
+

@@ -28,7 +28,7 @@
   --bs-secondary: #7846cd;
   --bs-success: #00b862;
   --bs-info: #1288e2;
-  --bs-warning: #ff914d;
+  --bs-warning: rgb(232, 122, 54);
   --bs-danger: #612491;
   --bs-light: #898d98;
   --bs-dark: #222831;
@@ -36,7 +36,7 @@
   --bs-secondary-rgb: 120, 70, 205;
   --bs-success-rgb: 0, 184, 98;
   --bs-info-rgb: 18, 136, 226;
-  --bs-warning-rgb: 255, 145, 77;
+  --bs-warning-rgb: 232, 122, 54;
   --bs-danger-rgb: 97, 36, 145;
   --bs-light-rgb: 137, 141, 152;
   --bs-dark-rgb: 34, 40, 49;
@@ -44,7 +44,7 @@
   --bs-secondary-text-emphasis: #301c52;
   --bs-success-text-emphasis: #004a27;
   --bs-info-text-emphasis: #07365a;
-  --bs-warning-text-emphasis: #663a1f;
+  --bs-warning-text-emphasis: #5d3116;
   --bs-danger-text-emphasis: #270e3a;
   --bs-light-text-emphasis: #495057;
   --bs-dark-text-emphasis: #495057;
@@ -52,7 +52,7 @@
   --bs-secondary-bg-subtle: #e4daf5;
   --bs-success-bg-subtle: #ccf1e0;
   --bs-info-bg-subtle: #d0e7f9;
-  --bs-warning-bg-subtle: #ffe9db;
+  --bs-warning-bg-subtle: #fae4d7;
   --bs-danger-bg-subtle: #dfd3e9;
   --bs-light-bg-subtle: #fcfcfd;
   --bs-dark-bg-subtle: #ced4da;
@@ -60,7 +60,7 @@
   --bs-secondary-border-subtle: #c9b5eb;
   --bs-success-border-subtle: #99e3c0;
   --bs-info-border-subtle: #a0cff3;
-  --bs-warning-border-subtle: #ffd3b8;
+  --bs-warning-border-subtle: #f6caaf;
   --bs-danger-border-subtle: #c0a7d3;
   --bs-light-border-subtle: #e9ecef;
   --bs-dark-border-subtle: #adb5bd;
@@ -140,7 +140,7 @@
   --bs-secondary-text-emphasis: #ae90e1;
   --bs-success-text-emphasis: #66d4a1;
   --bs-info-text-emphasis: #71b8ee;
-  --bs-warning-text-emphasis: #ffbd94;
+  --bs-warning-text-emphasis: #f1af86;
   --bs-danger-text-emphasis: #a07cbd;
   --bs-light-text-emphasis: #f8f9fa;
   --bs-dark-text-emphasis: #dee2e6;
@@ -148,7 +148,7 @@
   --bs-secondary-bg-subtle: #180e29;
   --bs-success-bg-subtle: #002514;
   --bs-info-bg-subtle: #041b2d;
-  --bs-warning-bg-subtle: #331d0f;
+  --bs-warning-bg-subtle: #2e180b;
   --bs-danger-bg-subtle: #13071d;
   --bs-light-bg-subtle: #343a40;
   --bs-dark-bg-subtle: #1a1d20;
@@ -156,7 +156,7 @@
   --bs-secondary-border-subtle: #482a7b;
   --bs-success-border-subtle: #006e3b;
   --bs-info-border-subtle: #0b5288;
-  --bs-warning-border-subtle: #99572e;
+  --bs-warning-border-subtle: #8b4920;
   --bs-danger-border-subtle: #3a1657;
   --bs-light-border-subtle: #495057;
   --bs-dark-border-subtle: #343a40;
@@ -730,7 +730,7 @@ progress {
   --bs-secondary: #7846cd;
   --bs-success: #00b862;
   --bs-info: #1288e2;
-  --bs-warning: #ff914d;
+  --bs-warning: rgb(232, 122, 54);
   --bs-danger: #612491;
   --bs-light: #898d98;
   --bs-dark: #222831;
@@ -738,7 +738,7 @@ progress {
   --bs-secondary-rgb: 120, 70, 205;
   --bs-success-rgb: 0, 184, 98;
   --bs-info-rgb: 18, 136, 226;
-  --bs-warning-rgb: 255, 145, 77;
+  --bs-warning-rgb: 232, 122, 54;
   --bs-danger-rgb: 97, 36, 145;
   --bs-light-rgb: 137, 141, 152;
   --bs-dark-rgb: 34, 40, 49;
@@ -746,7 +746,7 @@ progress {
   --bs-secondary-text-emphasis: #301c52;
   --bs-success-text-emphasis: #004a27;
   --bs-info-text-emphasis: #07365a;
-  --bs-warning-text-emphasis: #663a1f;
+  --bs-warning-text-emphasis: #5d3116;
   --bs-danger-text-emphasis: #270e3a;
   --bs-light-text-emphasis: #495057;
   --bs-dark-text-emphasis: #495057;
@@ -754,7 +754,7 @@ progress {
   --bs-secondary-bg-subtle: #e4daf5;
   --bs-success-bg-subtle: #ccf1e0;
   --bs-info-bg-subtle: #d0e7f9;
-  --bs-warning-bg-subtle: #ffe9db;
+  --bs-warning-bg-subtle: #fae4d7;
   --bs-danger-bg-subtle: #dfd3e9;
   --bs-light-bg-subtle: #fcfcfd;
   --bs-dark-bg-subtle: #ced4da;
@@ -762,7 +762,7 @@ progress {
   --bs-secondary-border-subtle: #c9b5eb;
   --bs-success-border-subtle: #99e3c0;
   --bs-info-border-subtle: #a0cff3;
-  --bs-warning-border-subtle: #ffd3b8;
+  --bs-warning-border-subtle: #f6caaf;
   --bs-danger-border-subtle: #c0a7d3;
   --bs-light-border-subtle: #e9ecef;
   --bs-dark-border-subtle: #adb5bd;
@@ -842,7 +842,7 @@ progress {
   --bs-secondary-text-emphasis: #ae90e1;
   --bs-success-text-emphasis: #66d4a1;
   --bs-info-text-emphasis: #71b8ee;
-  --bs-warning-text-emphasis: #ffbd94;
+  --bs-warning-text-emphasis: #f1af86;
   --bs-danger-text-emphasis: #a07cbd;
   --bs-light-text-emphasis: #f8f9fa;
   --bs-dark-text-emphasis: #dee2e6;
@@ -850,7 +850,7 @@ progress {
   --bs-secondary-bg-subtle: #180e29;
   --bs-success-bg-subtle: #002514;
   --bs-info-bg-subtle: #041b2d;
-  --bs-warning-bg-subtle: #331d0f;
+  --bs-warning-bg-subtle: #2e180b;
   --bs-danger-bg-subtle: #13071d;
   --bs-light-bg-subtle: #343a40;
   --bs-dark-bg-subtle: #1a1d20;
@@ -858,7 +858,7 @@ progress {
   --bs-secondary-border-subtle: #482a7b;
   --bs-success-border-subtle: #006e3b;
   --bs-info-border-subtle: #0b5288;
-  --bs-warning-border-subtle: #99572e;
+  --bs-warning-border-subtle: #8b4920;
   --bs-danger-border-subtle: #3a1657;
   --bs-light-border-subtle: #495057;
   --bs-dark-border-subtle: #343a40;
@@ -2685,13 +2685,13 @@ progress {
 
 .table-warning {
   --bs-table-color: #000;
-  --bs-table-bg: #ffe9db;
-  --bs-table-border-color: #ccbaaf;
-  --bs-table-striped-bg: #f2ddd0;
+  --bs-table-bg: #fae4d7;
+  --bs-table-border-color: #c8b6ac;
+  --bs-table-striped-bg: #eed9cc;
   --bs-table-striped-color: #000;
-  --bs-table-active-bg: #e6d2c5;
+  --bs-table-active-bg: #e1cdc2;
   --bs-table-active-color: #000;
-  --bs-table-hover-bg: #ecd8cb;
+  --bs-table-hover-bg: #e7d3c7;
   --bs-table-hover-color: #000;
   color: var(--bs-table-color);
   border-color: var(--bs-table-border-color);
@@ -3773,19 +3773,19 @@ textarea.form-control-lg {
 
 .btn-warning {
   --bs-btn-color: #000;
-  --bs-btn-bg: #ff914d;
-  --bs-btn-border-color: #ff914d;
+  --bs-btn-bg: rgb(232, 122, 54);
+  --bs-btn-border-color: rgb(232, 122, 54);
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #ffa268;
-  --bs-btn-hover-border-color: #ff9c5f;
-  --bs-btn-focus-shadow-rgb: 217, 123, 65;
+  --bs-btn-hover-bg: #eb8e54;
+  --bs-btn-hover-border-color: #ea874a;
+  --bs-btn-focus-shadow-rgb: 197, 104, 46;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #ffa771;
-  --bs-btn-active-border-color: #ff9c5f;
+  --bs-btn-active-bg: #ed955e;
+  --bs-btn-active-border-color: #ea874a;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #ff914d;
-  --bs-btn-disabled-border-color: #ff914d;
+  --bs-btn-disabled-bg: rgb(232, 122, 54);
+  --bs-btn-disabled-border-color: rgb(232, 122, 54);
 }
 
 .btn-danger {
@@ -3908,19 +3908,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-warning {
-  --bs-btn-color: #ff914d;
-  --bs-btn-border-color: #ff914d;
+  --bs-btn-color: rgb(232, 122, 54);
+  --bs-btn-border-color: rgb(232, 122, 54);
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #ff914d;
-  --bs-btn-hover-border-color: #ff914d;
-  --bs-btn-focus-shadow-rgb: 255, 145, 77;
+  --bs-btn-hover-bg: rgb(232, 122, 54);
+  --bs-btn-hover-border-color: rgb(232, 122, 54);
+  --bs-btn-focus-shadow-rgb: 232, 122, 54;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #ff914d;
-  --bs-btn-active-border-color: #ff914d;
+  --bs-btn-active-bg: rgb(232, 122, 54);
+  --bs-btn-active-border-color: rgb(232, 122, 54);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #ff914d;
+  --bs-btn-disabled-color: rgb(232, 122, 54);
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #ff914d;
+  --bs-btn-disabled-border-color: rgb(232, 122, 54);
   --bs-gradient: none;
 }
 
@@ -7584,8 +7584,8 @@ textarea.form-control-lg {
   text-decoration-color: RGBA(var(--bs-warning-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-warning:hover, .link-warning:focus {
-  color: RGBA(255, 167, 113, var(--bs-link-opacity, 1)) !important;
-  text-decoration-color: RGBA(255, 167, 113, var(--bs-link-underline-opacity, 1)) !important;
+  color: RGBA(237, 149, 94, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(237, 149, 94, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-danger {
@@ -12673,18 +12673,20 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-* {
-  text-decoration: none;
-}
-
 .custom-font {
   font-family: "Pirata One", sans-serif;
-  color: #ff914d;
+  color: rgb(232, 122, 54);
   font-size: 58pt;
   text-decoration: underline;
 }
 
-.nav-button {
+nav .btn {
   text-decoration: none;
-  color: #898d98;
+  text-align: center;
+  color: #fff;
+  font-size: larger;
+}
+
+.btn:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=main.css.map */
