@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Collection extends Model { }
+class Collection extends Model {}
 
 Collection.init(
     // TODO : define fields and columns for the cards 
@@ -10,7 +10,7 @@ Collection.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
-            primaryKey: true,
+            primaryKey: false,
         },
 
         user_id: {
