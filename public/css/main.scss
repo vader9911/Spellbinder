@@ -1,3 +1,63 @@
-// Import bootstrap styles
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
 
+// Custom colors
+$gunmetal: #222831ff;
+$tekhelet: #612491ff;
+$veronica: #a020f0ff;
+$blue-violet: #7846cdff;
+$emerald: #00b862ff;
+$atomic-tangerine: #ff914dff;
+$taupe-gray: #898d98ff;
+$bleu-de-france: #1288e2ff;
+$logo-gradient: linear-gradient(to right, #fa702a, #faa739);
+
+$primary: $veronica;
+$secondary: $blue-violet;
+$success: $emerald;
+$info: $bleu-de-france;
+$warning: $atomic-tangerine;
+$danger: $tekhelet;
+$light: $taupe-gray;
+$dark: $gunmetal;
+
+// Required
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// Optional Bootstrap components here
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+
+
+
+// Import Bootstrap variables 
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+
+
+
+// Import bootstrap styles
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Define your custom class and styles
+*   {
+    text-decoration: none;
+}
+
+.custom-font {
+    font-family: 'Pirata One', sans-serif;
+    color: $warning;
+    font-size: 58pt;
+    text-decoration: underline;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: $taupe-gray;
+}
