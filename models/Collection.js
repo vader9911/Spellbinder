@@ -10,7 +10,7 @@ Collection.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
-            primaryKey: false,
+            primaryKey: true,
         },
 
         user_id: {
