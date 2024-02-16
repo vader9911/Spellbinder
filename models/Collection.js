@@ -5,6 +5,7 @@ class Collection extends Model { }
 
 Collection.init(
     // TODO : define fields and columns for the cards 
+    
     {
         id: {
             type: DataTypes.INTEGER,
