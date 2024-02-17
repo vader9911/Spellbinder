@@ -23,16 +23,16 @@ router.post('/signup', async (req, res) => {
       
     });
     //!
-        // Create session variables based on the logged in user
-        req.session.save(() => {
-          req.session.user_id = dbUserData.id;
-          console.log(dbUserData.id)
-          req.session.loggedIn = true;
-          console.log(req.session.loggedIn)
-          res.json({ user: dbUserData, message: 'You are now logged in!' });
-        });
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      console.log(dbUserData.id)
+      req.session.loggedIn = true;
+      console.log(req.session.loggedIn)
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+        //Create session variables based on the logged in user
 //test
-    res.status(200).json(dbUserData);
+    // res.status(200).json(dbUserData);
 
     // req.session.save(() => {
     //   req.session.loggedIn = true;
