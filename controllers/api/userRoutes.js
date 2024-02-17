@@ -31,7 +31,7 @@ router.post('/signup', async (req, res) => {
           console.log(req.session.loggedIn)
           res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
-
+//test
     res.status(200).json(dbUserData);
 
     // req.session.save(() => {
