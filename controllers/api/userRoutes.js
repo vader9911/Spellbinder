@@ -20,8 +20,19 @@ router.post('/signup', async (req, res) => {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
+      
     });
-    res.status(200).json(dbUserData);
+    //!
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      console.log(dbUserData.id)
+      req.session.loggedIn = true;
+      console.log(req.session.loggedIn)
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+        //Create session variables based on the logged in user
+//test
+    // res.status(200).json(dbUserData);
 
     // req.session.save(() => {
     //   req.session.loggedIn = true;
@@ -63,7 +74,7 @@ router.post('/login', async (req, res) => {
       req.session.user_id = dbUserData.id;
       console.log(dbUserData.id)
       req.session.loggedIn = true;
-
+      console.log(req.session.loggedIn)
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
 
@@ -76,7 +87,7 @@ router.post('/login', async (req, res) => {
 // Logout
 router.post('/logout', (req, res) => {
   // When the user logs out, destroy the session
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });
