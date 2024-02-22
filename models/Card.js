@@ -12,6 +12,12 @@ Card.init(
             primaryKey: true,
         },
 
+        
+        card_name:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
         scryfall_id:{
             type: DataTypes.UUID,
             //defaultValue: UUIDV4,
@@ -32,6 +38,12 @@ Card.init(
 
         rarity:{
             type: DataTypes.STRING
+        },
+
+        card_price: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            //default null?
         }
 
     },

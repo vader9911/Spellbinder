@@ -3,7 +3,8 @@ const router = express.Router();
 const { Collection } = require('../../models');
 
 // Creats a collection if the user does not already have one. Also Looks for one.
-router.get('/:userid', withAll, async (req, res) =>{
+//what is withall
+router.get('/:userid', async (req, res) =>{
   try{
     const collectionData = await Collection.findOrCreate ({
       where:{
