@@ -1,6 +1,6 @@
 
 const scryfallQuery = {
-    splitArr(desiredLength, arrToSplit) {
+    async splitArr(desiredLength, arrToSplit) {
         let splitArrs = [];
         while (arrToSplit.length > 0) {
             let tempArr = [];
@@ -12,13 +12,13 @@ const scryfallQuery = {
         return splitArrs;
     },
 
-    autoComplete(string) {
+    async autoComplete(string) {
         let query = `https://api.scryfall.com/cards/autocomplete?q=${string}`
-        fetch(query).then(res => res.json()).then(data => data.data)
-        
+        let data = await fetch(query).then(res => res.json()).then(data => data.data)
+        return data
     },
 
-    getMany(cardsArr) {
+    async getMany(cardsArr) {
         cardsArr = scryfallQuery.splitArr(75, cardsArr);
         let scryfallCardsArr = [];
         function queryChunk() {
@@ -37,12 +37,13 @@ const scryfallQuery = {
                         return setTimeout(queryChunk, 100);
                     })
             };
-            return;
+            return scryfallCardsArr;
         };
     },
 
-    scryFallSyntaxSearch(string) {
+    async scryFallSyntaxSearch(string) {
         let query = `https://api.scryfall.com/cards/search?q=${string}`;
-        fetch(query).then(res => res.json()).then(data => data.data)
+        let data = await fetch(query).then(res => res.json()).then(data => data.data)
+        return data;
     },
 };

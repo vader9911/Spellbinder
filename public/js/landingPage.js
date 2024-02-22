@@ -1,9 +1,11 @@
 const searchBar = document.querySelector("#search-bar");
 const searchBtn = document.querySelector("#search-btn");
 
-function searchCard(){
+async function searchCard(){
     let searchText =  searchBar.value;
-    console.log(scryfallQuery.scryFallSyntaxSearch(searchText))
-}
+    const scryfallCards = await scryfallQuery.scryFallSyntaxSearch(searchText)
+    console.log(scryfallCards)
+    return scryfallCards;
+};
 
-searchBtn.addEventListener("click", searchCard)
+searchBtn.addEventListener("click", searchCard);
