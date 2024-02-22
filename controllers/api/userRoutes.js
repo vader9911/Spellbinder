@@ -96,6 +96,8 @@ router.post('/logout', (req, res) => {
   }
 });
 
+router.post ('/add-card', (req, res) => {
 
+});
 
 module.exports = router;
