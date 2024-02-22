@@ -12689,4 +12689,16 @@ nav .btn {
 
 .btn:hover {
   text-decoration: underline;
+}
+
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+  max-width: 1800px;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .custom-container {
+    flex-direction: column !important;
+    align-items: center;
+  }
 }/*# sourceMappingURL=main.css.map */
