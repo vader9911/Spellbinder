@@ -45,8 +45,10 @@ $dark: $gunmetal;
 // Import bootstrap styles
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-// Define custom class and styles
+// Define your custom class and styles
 
+
+// Override Bootstrap's hover styles for links with !important declaration
 
 
 .custom-font {
