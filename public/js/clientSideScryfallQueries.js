@@ -1,6 +1,13 @@
+function pausecomp(millis)
+{
+    var date = new Date();
+    var curDate = null;
+    do { curDate = new Date(); }
+    while(curDate-date < millis);
+}
 
 const scryfallQuery = {
-    async splitArr(desiredLength, arrToSplit) {
+    splitArr(desiredLength, arrToSplit) {
         let splitArrs = [];
         while (arrToSplit.length > 0) {
             let tempArr = [];
@@ -21,24 +28,26 @@ const scryfallQuery = {
     async getMany(cardsArr) {
         cardsArr = scryfallQuery.splitArr(75, cardsArr);
         let scryfallCardsArr = [];
-        function queryChunk() {
+        async function queryChunk() {
             if (cardsArr.length !== 0) {
                 let chunkToQuery = cardsArr.pop();
                 let query = `https://api.scryfall.com/cards/collection`;
-                fetch(query, {
+                await fetch(query, {
                     method: "POST",
                     body: JSON.stringify({ identifiers: chunkToQuery }),
                     headers: { "Content-type": "application/json; charset=UTF-8" }
-                    })
+                })
                     .then(res => res.json())
                     .then((data) => {
                         scryfallCardsArr.push(data.data);
-
-                        return setTimeout(queryChunk, 100);
+                        pausecomp(100)
+                        return queryChunk();
                     })
+                return;
             };
-            return scryfallCardsArr;
         };
+        await queryChunk()
+        return scryfallCardsArr;
     },
 
     async scryFallSyntaxSearch(string) {
