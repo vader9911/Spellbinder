@@ -41,9 +41,4 @@ router.get('/signup', async (req, res) => {
 
 
 module.exports = router;
-//The model stores data and its logic. 
-  //What is getting stored, accessing those things, modifying thig s getting stored.
-//view 
-  //ui/ux
-//controller
-  //interface between the two
+
