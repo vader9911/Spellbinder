@@ -74,3 +74,36 @@ nav .btn {
     
 }
 
+
+.container-fluid{
+    max-width: 1800px;
+    
+    justify-content: center;
+}
+
+.custom-container{
+    padding: 0px 10px;
+  }
+
+.card-container {
+    flex-shrink: 0;
+}
+
+.card-img{
+    // max-width: 262px;
+    // min-width: 200px;
+    margin: 5px;
+   
+}
+
+@media (max-width: 768px) {
+    .custom-container {
+      flex-direction: column !important;
+      align-items: center;
+    }
+}
+
+#search-bar {
+    margin: 0px 10px;
+}
+
