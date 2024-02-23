@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 const { CollectionCard, Card } = require('../models');
 
 // With auth prevents non logged in users from viewing the homepage
-router.get('/', async (req, res) => {
+router.get('/',withAuth, async (req, res) => {
   try {
 
     // Send over the 'loggedIn' session variable to the 'homepage' template
