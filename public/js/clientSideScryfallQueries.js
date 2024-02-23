@@ -73,4 +73,3 @@ const scryfallQuery = {
     },
 };
 
-module.exports = scryfallQuery

@@ -1,11 +1,18 @@
 const searchBar = document.querySelector("#search-bar");
 const searchBtn = document.querySelector("#search-btn");
-
+const cardContainer = document.querySelector("#card-container");
 
 async function searchCard(){
     let searchText =  searchBar.value;
     const scryfallCards = await scryfallQuery.scryFallSyntaxSearch(searchText)
     console.log(scryfallCards)
+
+    cardContainer.innerHTML = "";
+
+    scryfallCards.forEach(card => {
+        const cardElement = createCardElement(card);
+        cardContainer.appendChild(cardElement);
+    });
     return scryfallCards;
 };
 
@@ -29,29 +36,26 @@ async function searchCard(){
 
 
 function createCardElement(card) {
-    // Create card elements dynamically using the provided template
-    const cardDiv = document.createElement("div");
-    cardDiv.classList.add("container-fluid", "p-4", "mx-auto");
+    // const cardDiv = document.createElement("div");
+    // cardDiv.classList.add("p-4", "mx-auto");
 
-    const rowDiv = document.createElement("div");
-    rowDiv.classList.add("row", "mx-3");
+    // const rowDiv = document.createElement("div");
+    // rowDiv.classList.add("row", "mx-3");
 
     const colDiv = document.createElement("div");
-    colDiv.classList.add("col-2", "my-4");
+    colDiv.classList.add("col-2", "my-2");
 
     const cardImage = document.createElement("img");
-    cardImage.src = card.imageUri; // Adjust this based on the actual property in your card object
+    cardImage.src = card.image_uris?.png; // Use image_uris.normal for the card image
     cardImage.alt = card.name;
     cardImage.classList.add("img-fluid");
 
-    // Append elements to the card container
     colDiv.appendChild(cardImage);
-    rowDiv.appendChild(colDiv);
-    cardDiv.appendChild(rowDiv);
+    // rowDiv.appendChild(colDiv);
+    // cardDiv.appendChild(rowDiv);
 
-    return cardDiv;
+    return colDiv;
 }
-
 
 
 searchBtn.addEventListener("click", searchCard);
