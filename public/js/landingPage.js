@@ -19,48 +19,50 @@ async function searchCard(){
 
 
 function createCardElement(card) {
-
     const colDiv = document.createElement("div");
-    colDiv.classList.add("col-lg-2","col-md-3","col-sm-4","col-xs-6", "my-2", 'card-obj');
+    colDiv.classList.add("col-lg-2", "col-md-3", "col-sm-4", "col-xs-6", "my-2", 'card-obj');
 
     const cardImage = document.createElement("img");
-    cardImage.src = card.image_uris?.png; // Use image_uris.normal for the card image
+    cardImage.src = card.image_uris?.png;
     cardImage.alt = card.name;
     cardImage.classList.add("card-img");
 
     // Set custom data attributes
-
     cardImage.setAttribute("data-card-name", card.name);
+    cardImage.setAttribute("data-card-rarity", card.rarity);
     cardImage.setAttribute("data-card-image", card.image_uris?.png);
     cardImage.setAttribute("data-card-uuid", card.id);
     cardImage.setAttribute("data-card-oracle-text", card.oracle_text);
-    cardImage.setAttribute("data-card-price-usd", card.prices.usd);
 
+    // Create "Add to Collection" button with Bootstrap classes
+    const addToCollectionButton = document.createElement("button");
+    addToCollectionButton.textContent = "Add to Collection";
+    addToCollectionButton.classList.add("btn", "btn-primary", "add-to-collection-btn");
+
+    // Add click event listener to the button
+    addToCollectionButton.addEventListener('click', function (event) {
+        // Access data attributes
+        const card_name = cardImage.getAttribute('data-card-name');
+        const oracle_text = cardImage.getAttribute('data-card-oracle-text');
+        const img_uri = cardImage.getAttribute('data-card-image');
+        const uuid = cardImage.getAttribute('data-card-uuid');
+        const rarity = cardImage.getAttribute('data-card-rarity');
+
+        // Send data to the backend 
+        sendDataToBackend({ card_name, oracle_text, img_uri, uuid, rarity });
+    });
 
     colDiv.appendChild(cardImage);
-    
-
+    colDiv.appendChild(addToCollectionButton);
 
     return colDiv;
 }
 
-
-
-document.addEventListener('click', function(event) {
-    // Check if the clicked element is a card
-    if (event.target.classList.contains('card-img') || event.target.classList.contains('card-obj')) {
-        // Access data attributes
-        const card_name = event.target.getAttribute('data-card-name');
-        const oracle_text = event.target.getAttribute('data-card-oracle-text');
-        const img_uri = event.target.getAttribute('data-card-image');
-        const scryfall_id = event.target.getAttribute('data-card-uuid');
-        // const card_price = event.target.getAttribute('data-card-price-usd');
-
-        
-        console.log(card_name, img_uri, scryfall_id, oracle_text);  
-    }
-});
-
+// Function to send data to the backend
+function sendDataToBackend(data) {
+    // Implement backend communication logic 
+    console.log("Sending data to backend:", data);
+};
 
 
 searchBtn.addEventListener("click", searchCard);
