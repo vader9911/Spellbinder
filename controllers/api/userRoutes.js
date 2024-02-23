@@ -96,6 +96,19 @@ router.post('/logout', (req, res) => {
   }
 });
 
+router.post('/addcard', (req, res) => {
+  
+}
+)
 
 
 module.exports = router;
+
+//server needs to: (when user pushes add to collection)
+
+//hit the database to see if that card already exists via checking the scryfall uuid
+  //hit a route and check the db to see if the card they want is already in the db
+
+//if it does, create  anew relationship in the relationship table matching the collection to the card.
+
+//if it dosnt exist create the card on the database then create the relationship in the relationship table.

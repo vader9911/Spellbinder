@@ -72,4 +72,3 @@ const scryfallQuery = {
         return data;
     },
 };
-
