@@ -49,8 +49,17 @@ function createCardElement(card) {
     cardImage.src = card.image_uris?.png; // Use image_uris.normal for the card image
     cardImage.alt = card.name;
     cardImage.classList.add("card-img");
+
+    // Set custom data attributes
+    colDiv.setAttribute("data-card-name", card.name);
+    colDiv.setAttribute("data-card-image", card.image_uris?.png);
+    colDiv.setAttribute("data-card-uuid", card.id);
+
+
+
     colDiv.appendChild(cardImage);
     
+
 
     return colDiv;
 }
