@@ -18,51 +18,75 @@ async function searchCard(){
 
 
 
-
-
-
-// // demo card template  
-// // todo add js to dynamically generate per card 
-//   <div class="container-fluid  p-4 mx-auto">
-//     <div class="row mx-3">
-
-//       <div class="col-2 my-4">
-//            <img src="https://cards.scryfall.io/png/front/e/0/e08ed414-77bf-402a-82a8-9d4e1bd627a1.png?1682204635" alt="Atraxa" class="img-fluid" >
-//       </div>
-  
-//     </div> 
-    
-//   </div>
-
-
 function createCardElement(card) {
-    // const cardDiv = document.createElement("div");
-    // cardDiv.classList.add("p-4", "mx-auto");
-
-    // const rowDiv = document.createElement("div");
-    // rowDiv.classList.add("row", "mx-3");
-
     const colDiv = document.createElement("div");
-    colDiv.classList.add("col-lg-2","col-md-3","col-sm-4","col-xs-6", "my-2");
+    colDiv.classList.add("col-lg-2", "col-md-3", "col-sm-4", "col-xs-6", "my-2", 'card-obj');
 
     const cardImage = document.createElement("img");
-    cardImage.src = card.image_uris?.png; // Use image_uris.normal for the card image
+    cardImage.src = card.image_uris?.png;
     cardImage.alt = card.name;
     cardImage.classList.add("card-img");
 
     // Set custom data attributes
-    colDiv.setAttribute("data-card-name", card.name);
-    colDiv.setAttribute("data-card-image", card.image_uris?.png);
-    colDiv.setAttribute("data-card-uuid", card.id);
+    cardImage.setAttribute("data-card-name", card.name);
+    cardImage.setAttribute("data-card-rarity", card.rarity);
+    cardImage.setAttribute("data-card-image", card.image_uris?.png);
+    cardImage.setAttribute("data-card-uuid", card.id);
+    cardImage.setAttribute("data-card-oracle-text", card.oracle_text);
 
+    // Create "Add to Collection" button with Bootstrap classes
+    const addToCollectionButton = document.createElement("button");
+    addToCollectionButton.textContent = "Add to Collection";
+    addToCollectionButton.classList.add("btn", "btn-primary", "add-to-collection-btn");
 
+    // Add click event listener to the button
+    addToCollectionButton.addEventListener('click', function (event) {
+        // Access data attributes
+        const card_name = cardImage.getAttribute('data-card-name');
+        const oracle_text = cardImage.getAttribute('data-card-oracle-text');
+        const img_uri = cardImage.getAttribute('data-card-image');
+        const uuid = cardImage.getAttribute('data-card-uuid');
+        const rarity = cardImage.getAttribute('data-card-rarity');
+
+        // Send data to the backend 
+        sendDataToBackend({ card_name, oracle_text, img_uri, uuid, rarity });
+    });
 
     colDiv.appendChild(cardImage);
-    
-
+    colDiv.appendChild(addToCollectionButton);
 
     return colDiv;
 }
 
+// Function to send data to the backend
+function sendDataToBackend(data) {
+    
+    // Make an HTTP POST request to the backend
+    fetch('/api/cards/addtocollection', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(responseData => {
+        console.log('Data sent successfully:', responseData);
+    })
+    .catch(error => {
+        console.error('Error sending data to the backend:', error);
+    });
+}
+
 
 searchBtn.addEventListener("click", searchCard);
+searchBar.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchCard();
+    }
+});
