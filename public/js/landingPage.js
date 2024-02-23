@@ -43,16 +43,14 @@ function createCardElement(card) {
     // rowDiv.classList.add("row", "mx-3");
 
     const colDiv = document.createElement("div");
-    colDiv.classList.add("col-2", "my-2");
+    colDiv.classList.add("col-lg-2","col-md-3","col-sm-4","col-xs-6", "my-2");
 
     const cardImage = document.createElement("img");
     cardImage.src = card.image_uris?.png; // Use image_uris.normal for the card image
     cardImage.alt = card.name;
-    cardImage.classList.add("img-fluid");
-
+    cardImage.classList.add("card-img");
     colDiv.appendChild(cardImage);
-    // rowDiv.appendChild(colDiv);
-    // cardDiv.appendChild(rowDiv);
+    
 
     return colDiv;
 }
