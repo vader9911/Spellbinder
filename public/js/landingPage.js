@@ -60,9 +60,28 @@ function createCardElement(card) {
 
 // Function to send data to the backend
 function sendDataToBackend(data) {
-    // Implement backend communication logic 
-    console.log("Sending data to backend:", data);
-};
+    
+    // Make an HTTP POST request to the backend
+    fetch('/api/cards/addtocollection', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(responseData => {
+        console.log('Data sent successfully:', responseData);
+    })
+    .catch(error => {
+        console.error('Error sending data to the backend:', error);
+    });
+}
 
 
 searchBtn.addEventListener("click", searchCard);
