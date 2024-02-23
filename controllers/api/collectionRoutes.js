@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Collection } = require('../../models');
 
-// CREATE a collection
+// CREATES a collection
 router.post('/', async (req, res) => {
     try {
       const collectionData = await Collection.create(req.body);
@@ -12,16 +12,12 @@ router.post('/', async (req, res) => {
     }
   });
 
-// DELETE a collection
+// DELETES a collection
 router.delete('/:id', async (req, res) => {
     try {
       const collectionData = await Collection.destroy({
         where: { id: req.params.id }
       });
-      if (!collectionData) {
-        res.status(404).json({ message: 'No collection with this id!' });
-        return;
-      }
       res.status(200).json(tripData);
     } catch (err) {
       res.status(500).json(err);
