@@ -46,3 +46,7 @@ const scryfallQuery = {
         fetch(query).then(res => res.json()).then(data => data.data)
     },
 };
+
+
+
+
