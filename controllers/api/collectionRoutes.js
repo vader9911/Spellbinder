@@ -5,14 +5,15 @@ const withAuth = require('../../utils/auth');
 
 // Creats a collection if the user does not already have one. Also Looks for one.
 
-router.get('/:userid', withAuth, async (req, res) =>{
+router.get('/', withAuth, async (req, res) =>{
+
   try{
     const collectionData = await Collection.findOrCreate ({
       where:{
         user_id: req.session.userid 
       }
     });
-    res.status(200).json(collectionData);
+    res.status(200).redirect('/collection/img');
   } catch(err) {
     res.status(500).json(err);
   };
