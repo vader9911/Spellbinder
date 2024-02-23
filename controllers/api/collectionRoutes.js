@@ -4,6 +4,7 @@ const { Collection } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Creats a collection if the user does not already have one. Also Looks for one.
+
 router.get('/:userid', withAuth, async (req, res) =>{
   try{
     const collectionData = await Collection.findOrCreate ({
