@@ -1,10 +1,13 @@
 const router = require('express').Router();
+const cardRoutes = require('./cardRoutes');
 
 const userRoutes = require('./userRoutes');
 const collectionRoutes = require ('./collectionRoutes');
 
-//Anything tahts inside the userRoutes file is now prefixed by /users
+//Anything thats inside the userRoutes file is now prefixed by /users
 router.use('/users', userRoutes);
 router.use('/collections', collectionRoutes);
+router.use('/cards', cardRoutes);
+
 
 module.exports = router;
