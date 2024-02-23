@@ -47,3 +47,5 @@ const scryfallQuery = {
         return data;
     },
 };
+
+module.exports = scryfallQuery
