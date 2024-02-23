@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class CollectionCard extends Model {}
 
+//each row is an instance of a card belonging to a collection
 CollectionCard.init(
    {
         id:{
