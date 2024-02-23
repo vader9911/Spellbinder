@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const withAuth = require('../utils/auth');
+const { CollectionCard, Card } = require('../models');
 
 // With auth prevents non logged in users from viewing the homepage
 router.get('/', async (req, res) => {
@@ -15,6 +16,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/login', async (req, res) => {
   try {
 
@@ -39,6 +41,24 @@ router.get('/signup', async (req, res) => {
   }
 });
 
+router.get('/collection/:view', withAuth, async (req, res) => {
+  try {
+      let cardsInCollection = await CollectionCard.findAll({
+        include: Card,
+        where: {
+          id: req.session.user_id,
+        }
+      })
+      res.render('collection', {
+        loggedIn: req.session.loggedIn,
+        view: req.params.view,
+        cards: cardsInCollection
+      });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
 

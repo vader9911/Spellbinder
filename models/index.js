@@ -27,6 +27,7 @@ Card.belongsToMany(Collection, {
 module.exports = {
   User,
   Collection,
-  CollectionCard
+  CollectionCard,
+  Card
 };
 
