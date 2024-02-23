@@ -12,16 +12,16 @@ router.post('/', async (req, res) => {
     }
   });
 
-// DELETES a collection
-router.delete('/:id', async (req, res) => {
-    try {
-      const collectionData = await Collection.destroy({
-        where: { id: req.params.id }
-      });
-      res.status(200).json(tripData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+// // DELETES a collection
+// router.delete('/:id', async (req, res) => {
+//     try {
+//       const collectionData = await Collection.destroy({
+//         where: { id: req.params.id }
+//       });
+//       res.status(200).json(tripData);
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
   module.exports = router;
