@@ -17,10 +17,9 @@ Card.init(
             //defaultValue: UUIDV4,
         },
 
-        img_uri{
+        img_uri:{
             type: DataTypes.STRING,
             allowNull: false,
-
         },
 
         oracle_text:{
