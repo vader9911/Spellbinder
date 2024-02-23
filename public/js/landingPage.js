@@ -18,32 +18,10 @@ async function searchCard(){
 
 
 
-
-
-
-// // demo card template  
-// // todo add js to dynamically generate per card 
-//   <div class="container-fluid  p-4 mx-auto">
-//     <div class="row mx-3">
-
-//       <div class="col-2 my-4">
-//            <img src="https://cards.scryfall.io/png/front/e/0/e08ed414-77bf-402a-82a8-9d4e1bd627a1.png?1682204635" alt="Atraxa" class="img-fluid" >
-//       </div>
-  
-//     </div> 
-    
-//   </div>
-
-
 function createCardElement(card) {
-    // const cardDiv = document.createElement("div");
-    // cardDiv.classList.add("p-4", "mx-auto");
-
-    // const rowDiv = document.createElement("div");
-    // rowDiv.classList.add("row", "mx-3");
 
     const colDiv = document.createElement("div");
-    colDiv.classList.add("col-lg-2","col-md-3","col-sm-4","col-xs-6", "my-2");
+    colDiv.classList.add("col-lg-2","col-md-3","col-sm-4","col-xs-6", "my-2", 'card-obj');
 
     const cardImage = document.createElement("img");
     cardImage.src = card.image_uris?.png; // Use image_uris.normal for the card image
@@ -51,10 +29,12 @@ function createCardElement(card) {
     cardImage.classList.add("card-img");
 
     // Set custom data attributes
-    colDiv.setAttribute("data-card-name", card.name);
-    colDiv.setAttribute("data-card-image", card.image_uris?.png);
-    colDiv.setAttribute("data-card-uuid", card.id);
 
+    cardImage.setAttribute("data-card-name", card.name);
+    cardImage.setAttribute("data-card-image", card.image_uris?.png);
+    cardImage.setAttribute("data-card-uuid", card.id);
+    cardImage.setAttribute("data-card-oracle-text", card.oracle_text);
+    cardImage.setAttribute("data-card-price-usd", card.prices.usd);
 
 
     colDiv.appendChild(cardImage);
@@ -65,4 +45,27 @@ function createCardElement(card) {
 }
 
 
+
+document.addEventListener('click', function(event) {
+    // Check if the clicked element is a card
+    if (event.target.classList.contains('card-img') || event.target.classList.contains('card-obj')) {
+        // Access data attributes
+        const card_name = event.target.getAttribute('data-card-name');
+        const oracle_text = event.target.getAttribute('data-card-oracle-text');
+        const img_uri = event.target.getAttribute('data-card-image');
+        const scryfall_id = event.target.getAttribute('data-card-uuid');
+        // const card_price = event.target.getAttribute('data-card-price-usd');
+
+        
+        console.log(card_name, img_uri, scryfall_id, oracle_text);  
+    }
+});
+
+
+
 searchBtn.addEventListener("click", searchCard);
+searchBar.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchCard();
+    }
+});
