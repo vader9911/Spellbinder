@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Card } = require('../../models');
-const { CollectionCard } = require('../../models');
+const { Card, CollectionCard } = require('../../models');
 //Query database for all cards
 // router.get('/', async (req, res) => {
 //     try {
