@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
 class Collection extends Model {}
 
 Collection.init(
@@ -32,7 +31,7 @@ Collection.init(
         freezeTableName: true,
         modelName: 'collection'
     }
-
 );
+
 
 module.exports = Collection;

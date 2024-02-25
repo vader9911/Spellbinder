@@ -14,22 +14,21 @@ CollectionCard.init(
         },
         card_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            
         },
 
         condition:{
             type: DataTypes.STRING
         },
 
-        collection_id:{
+        collection_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'collection',
-                key: 'id',
+              model: 'collection',
+              key: 'id',
             },
         },
-
         card_id:{
             type: DataTypes.INTEGER,
             allowNull: false,

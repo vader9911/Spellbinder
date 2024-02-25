@@ -29,7 +29,7 @@ Card.init(
         },
 
         oracle_text:{
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
 
         multifaced:{

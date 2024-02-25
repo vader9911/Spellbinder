@@ -29,7 +29,6 @@ const sess = {
 app.use(session(sess));
 
 
-
 // Incorporate the custom helper methods
 const hbs = exphbs.create({ helpers });
 
