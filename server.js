@@ -17,7 +17,7 @@ const sess = {
   secret: 'Super secret secret',
   cookie: {
     // Stored in milliseconds
-    maxAge: 900 * 1000, // expires after 900 seconds
+    maxAge: 900 * 1000, // expires after 15 mins
   },
   resave: false,
   saveUninitialized: true,
@@ -27,7 +27,6 @@ const sess = {
 };
 
 app.use(session(sess));
-
 
 
 // Incorporate the custom helper methods

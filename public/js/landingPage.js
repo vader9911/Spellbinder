@@ -34,7 +34,7 @@ function createCardElement(card) {
     cardImage.setAttribute("data-card-uuid", card.id);
     cardImage.setAttribute("data-card-oracle-text", card.oracle_text);
 
-    // Create "Add to Collection" button with Bootstrap classes
+    // Create "Add to Collection" button
     const addToCollectionButton = document.createElement("button");
     addToCollectionButton.textContent = "Add to Collection";
     addToCollectionButton.classList.add("btn", "btn-primary", "add-to-collection-btn");
@@ -45,11 +45,11 @@ function createCardElement(card) {
         const card_name = cardImage.getAttribute('data-card-name');
         const oracle_text = cardImage.getAttribute('data-card-oracle-text');
         const img_uri = cardImage.getAttribute('data-card-image');
-        const uuid = cardImage.getAttribute('data-card-uuid');
+        const scryfall_id = cardImage.getAttribute('data-card-uuid');
         const rarity = cardImage.getAttribute('data-card-rarity');
 
         // Send data to the backend 
-        sendDataToBackend({ card_name, oracle_text, img_uri, uuid, rarity });
+        sendDataToBackend({ card_name, oracle_text, img_uri, scryfall_id, rarity });
     });
 
     colDiv.appendChild(cardImage);
@@ -61,7 +61,7 @@ function createCardElement(card) {
 // Function to send data to the backend
 function sendDataToBackend(data) {
     
-    // Make an HTTP POST request to the backend
+   
     fetch('/api/cards/addtocollection', {
         method: 'POST',
         headers: {

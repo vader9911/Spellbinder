@@ -1,0 +1,13 @@
+<div class="collection">
+    <h2>My Collection</h2>
+    <ul>
+        {{#each CollectionCards}}
+        <li>
+            <img src="{{this.Card.img_uri}}" alt="{{this.Card.card_name}}">
+            <h3>{{this.Card.card_name}}</h3>
+            <p>{{this.Card.oracle_text}}</p>
+            <p>Rarity: {{this.Card.rarity}}</p>
+        </li>
+        {{/each}}
+    </ul>
+</div>

@@ -12,20 +12,23 @@ CollectionCard.init(
             autoIncrement: true,
             primaryKey: true,
         },
+        card_name: {
+            type: DataTypes.STRING,
+            
+        },
 
         condition:{
             type: DataTypes.STRING
         },
 
-        collection_id:{
+        collection_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'collection',
-                key: 'id',
+              model: 'collection',
+              key: 'id',
             },
         },
-
         card_id:{
             type: DataTypes.INTEGER,
             allowNull: false,

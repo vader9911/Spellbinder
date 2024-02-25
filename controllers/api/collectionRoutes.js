@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) =>{
   try{
     const collectionData = await Collection.findOrCreate ({
       where:{
-        user_id: req.session.userid 
+        user_id: req.session.userid
       }
     });
     res.status(200).redirect('/collection/img');

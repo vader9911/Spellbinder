@@ -1,7 +1,7 @@
 //In all routes import whatever modal you are trying to affect
 const express = require('express');
 const router = express.Router();
-const { User } = require('../../models');
+const { User , Collection} = require('../../models');
 // const withAuth = require('../utils/auth');
 //This page handles user sign up, login and logout.
 router.get('/', async (req, res) => {
@@ -32,7 +32,7 @@ router.post('/signup', async (req, res) => {
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
         //Create session variables based on the logged in user
-//test
+    //test
     // res.status(200).json(dbUserData);
 
     // req.session.save(() => {
@@ -70,16 +70,27 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // Create session variables based on the logged in user
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      console.log(dbUserData.id)
-      req.session.loggedIn = true;
-      console.log(req.session.loggedIn)
+    // Create session variables based on the logged-in user
+    // Create session variables based on the logged-in user
+    req.session.save(async () => {
+    req.session.user_id = dbUserData.id;
+    req.session.loggedIn = true;
+
+    // Check if the user has a collection
+    const collection = await Collection.findOne({ where: { user_id: dbUserData.id } });
+    if (!collection) {
+      // If the user doesn't have a collection, create one
+      await Collection.create({ user_id: dbUserData.id });
+      console.log('Collection created for user:', dbUserData.id);
+      } else {
+        console.log('User already has a collection:', dbUserData.id);
+      }
+
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
 
   } catch (err) {
+    console.error('Error during login:', err);
     res.status(400).json(err);
   }
 });
