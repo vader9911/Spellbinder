@@ -45,11 +45,11 @@ function createCardElement(card) {
         const card_name = cardImage.getAttribute('data-card-name');
         const oracle_text = cardImage.getAttribute('data-card-oracle-text');
         const img_uri = cardImage.getAttribute('data-card-image');
-        const uuid = cardImage.getAttribute('data-card-uuid');
+        const scryfall_id = cardImage.getAttribute('data-card-uuid');
         const rarity = cardImage.getAttribute('data-card-rarity');
 
         // Send data to the backend 
-        sendDataToBackend({ card_name, oracle_text, img_uri, uuid, rarity });
+        sendDataToBackend({ card_name, oracle_text, img_uri, scryfall_id, rarity });
     });
 
     colDiv.appendChild(cardImage);

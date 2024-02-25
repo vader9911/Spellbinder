@@ -12,6 +12,10 @@ CollectionCard.init(
             autoIncrement: true,
             primaryKey: true,
         },
+        card_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
 
         condition:{
             type: DataTypes.STRING

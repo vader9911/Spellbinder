@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Card, CollectionCard } = require('../../models');
+const { Card, Collection, CollectionCard } = require('../../models');
 //Query database for all cards
 // router.get('/', async (req, res) => {
 //     try {
@@ -42,35 +42,52 @@ Front-end sends POST request to this endpoint with a body (likely) of { scryfall
 */
 router.post('/addtocollection', async (req, res) => {
     try {
-//When the user clicks on a card it checks to see if the card exists, if not, create it.
-        const card = await Card.findOrCreate({
-            where: {
-                scryfall_id: req.body.uuid
-            },
-            defaults: {
+        // Check if the card exists in the card table
+        let card = await Card.findOne({ where: { scryfall_id: req.body.scryfall_id } });
+
+        // If the card doesn't exist, add it to the card table
+        if (!card) {
+            card = await Card.create({
+                scryfall_id: req.body.scryfall_id,
                 oracle_text: req.body.oracle_text,
                 rarity: req.body.rarity,
                 card_name: req.body.card_name,
-                img_uri: req.body.img_uri,
+                img_uri: req.body.img_uri
+                
+            });
+        }
 
-            }
-        });
+        const userId = req.session.user_id;
+        
         const userCollection = await Collection.findOne({
-            where: {
-                user_id: req.session.user_id,
-            }
-        })
-//make a pairing between a card and a collection; and query the database
-//find the user thats logged in and their collection
-        const collectedCard = await CollectionCard.create({
-            //condition: req.body.condition,
+                where: {
+                    user_id: userId,
+                }
+            })
+
+            cons
+
+        // Retrieve the user's collection
+        const collection_card = await Collection.findOne({ where: { user_id: req.session.user_id } });
+
+        // Add the card to the user's collection
+        await CollectionCard.create({
             collection_id: userCollection.id,
+            user_id: collection_card.user_id,
             card_id: card.id,
-        })
-        res.status(204).end()
+            scryfall_id: card.scryfall_id,
+            card_name: card.card_name,
+            img_uri: card.img_uri,
+            oracle_text: card.oracle_text,
+            rarity: card.rarity
+            
+        });
+
+        res.status(204).end();
     } catch (err) {
-        res.status(500).json("Internal server error")
+        console.error('Error adding card to collection:', err);
+        res.status(500).json({ error: 'Internal server error' });
     }
-})
+}); 
 
 module.exports = router;
