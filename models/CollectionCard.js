@@ -13,19 +13,18 @@ CollectionCard.init(
             primaryKey: true,
         },
 
-        condition:{
-            type: DataTypes.STRING
-        },
+        // condition:{
+        //     type: DataTypes.STRING
+        // },
 
-        collection_id:{
+        collection_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'collection',
-                key: 'id',
+              model: 'collection',
+              key: 'id',
             },
         },
-
         card_id:{
             type: DataTypes.INTEGER,
             allowNull: false,

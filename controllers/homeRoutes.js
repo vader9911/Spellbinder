@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const withAuth = require('../utils/auth');
-const { CollectionCard, Card } = require('../models');
+const { CollectionCard, Collection, Card } = require('../models');
 
 // With auth prevents non logged in users from viewing the homepage
 router.get('/', async (req, res) => {
@@ -43,20 +43,30 @@ router.get('/signup', async (req, res) => {
 
 router.get('/collection/:view', withAuth, async (req, res) => {
   try {
-      let cardsInCollection = await CollectionCard.findAll({
-        include: Card,
-        where: {
-          id: req.session.user_id,
-        }
-      })
-      res.render('collection', {
-        loggedIn: req.session.loggedIn,
-        view: req.params.view,
-        cards: cardsInCollection
-      });
+    // Find the user's collection and include associated cards
+    const userCollection = await Collection.findOne({
+      where: { user_id: req.session.user_id },
+      include: { model: CollectionCard, include: { model: Card } }
+    });
+
+    // Log userCollection to inspect its structure
+    console.log('User Collection:', JSON.stringify(userCollection, null, 2));
+
+    // Extract img_uri from each card in the user's collection
+    const cardImages = userCollection.collection_card.map(collectionCard => ({
+      id: collectionCard.card.id,
+      img_uri: collectionCard.card.img_uri
+    }));
+
+    // Render the collection view with card images
+    res.render('collection', {
+      loggedIn: req.session.loggedIn,
+      view: req.params.view,
+      cards: cardImages
+    });
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    console.error('Error retrieving collection:', err);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

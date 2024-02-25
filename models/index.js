@@ -23,6 +23,20 @@ Card.belongsToMany(Collection, {
   foreignKey: 'card_id',
 });
 
+// Define the association to CollectionCard
+// Collection.hasMany(CollectionCard, {
+//   foreignKey: 'collection_id', 
+// });
+
+// Card.belongsToMany(CollectionCard, {
+//   through: 'CollectionCard', // Name of the join table
+//   foreignKey: 'card_id',
+// });
+
+// CollectionCard.belongsToMany(Card, {
+//   through: 'CollectionCard', // Name of the join table
+//   foreignKey: 'collection_id',
+// });
 
 module.exports = {
   User,
