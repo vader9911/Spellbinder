@@ -59,28 +59,19 @@ router.post('/addtocollection', async (req, res) => {
 
         const userId = req.session.user_id;
         
-        const userCollection = await Collection.findOne({
+        let userCollection = await Collection.findOrCreate({
                 where: {
                     user_id: userId,
-                }
+                },
+                raw: true,
             })
 
-            cons
-
-        // Retrieve the user's collection
-        const collection_card = await Collection.findOne({ where: { user_id: req.session.user_id } });
-
+        console.log(userCollection)
+        console.log(card)
         // Add the card to the user's collection
         await CollectionCard.create({
-            collection_id: userCollection.id,
-            user_id: collection_card.user_id,
-            card_id: card.id,
-            scryfall_id: card.scryfall_id,
-            card_name: card.card_name,
-            img_uri: card.img_uri,
-            oracle_text: card.oracle_text,
-            rarity: card.rarity
-            
+            collection_id: userCollection[0].id,
+            card_id: card.id,           
         });
 
         res.status(204).end();
