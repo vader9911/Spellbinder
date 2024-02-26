@@ -15,7 +15,7 @@
   
 ## Usage
   
--Follow the deployment link at [link](https://spellbindertcg-a6e0edcf3480.herokuapp.com/)
+-Follow the deployment link at [SpellBinder](https://spellbindertcg-a6e0edcf3480.herokuapp.com/)
 
 -Create an account
 
