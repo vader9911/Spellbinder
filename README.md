@@ -8,9 +8,10 @@
 
 - [Usage](#usage)
 
+- [Demo](#demo)
+
 - [Questions](#questions)
 
-- [Demo](#demo)
   
   
 ## Usage
@@ -25,7 +26,7 @@
   
 ## Questions
   
-For any questions, feel free to contact the developers through either of these options: 
+For any questions, feel free to contact the developers: 
   
 -[Kevin](https://github.com/kev-rod43)
 
