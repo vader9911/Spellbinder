@@ -1,5 +1,5 @@
 # SpellBinder
-
+![alt text](image.png)
 ## Description
   
  SpellBinder was made and intended to be used for the any kind of Magic fan, new or hardcore. The idea of the application is to be able to make an account where you can then make your physical collection, digital. Make it easy to quickly sweep through your collection and look at your cards conditions, ratings and more!
