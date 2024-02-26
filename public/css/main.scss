@@ -54,23 +54,22 @@ $dark: $gunmetal;
 .custom-font {
     font-family: 'Pirata One', sans-serif;
     color: $warning;
-    font-size: 58pt;
+    font-size: 88pt;
     text-decoration: underline;
-    
-    // border: solid  1px;
-    // border-radius: 10px;
-    
+    -webkit-text-stroke: $dark 2px;        
 }
 
 nav .btn {
     text-decoration: none;
-    text-align: center;
+    text-align: start;
     color: $white;
-    font-size: larger;
+    font-size: x-large;
+    
 }
 
 .btn:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    
     
 }
 
@@ -101,9 +100,18 @@ nav .btn {
       flex-direction: column !important;
       align-items: center;
     }
+    .custom-font {
+        font-size: 62pt; 
+    }
 }
 
-#search-bar {
-    margin: 0px 10px;
-}
+
+// #search-bar {
+//     margin-left: 400px;
+//     min-width: 400px;
+// }
+// #search-btn {
+//     margin-right: 400px;
+//     min-width: 80px;
+// }
 
