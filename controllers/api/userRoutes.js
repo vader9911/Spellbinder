@@ -76,7 +76,7 @@ router.post('/login', async (req, res) => {
         console.log('User already has a collection:', dbUserData.id);
       }
 
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.redirect('/');
     });
 
   } catch (err) {

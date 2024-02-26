@@ -38,7 +38,7 @@ router.get('/signup', async (req, res) => {
   }
 });
 
-router.get('/collection/:view', withAuth, async (req, res) => {
+router.get('/collection', withAuth, async (req, res) => {
   try {
     // Find the user's collection and include associated cards
     const userCollection = await Collection.findOne({
@@ -46,24 +46,20 @@ router.get('/collection/:view', withAuth, async (req, res) => {
       include: { model: Card, through: CollectionCard }
     });
 
-    // Log userCollection to inspect its structure
-    console.log('User Collection:', JSON.stringify(userCollection, null, 2));
-
-    // Extract img_uri from each card in the user's collection
-    const cardImages = userCollection?.cards?.map(card => ({
+    // Extract card data from each card in the user's collection
+    const cards = userCollection?.cards?.map(card => ({
       id: card.id,
       card_name: card.card_name,
-      img_uri: card.img_uri
+      img_uri: card.img_uri,
+      oracle_text: card.oracle_text,
+      rarity: card.rarity,
     })) || [];
-
-    // Log the cards array to inspect its contents
-    console.log('Card Images:', cardImages);
 
     // Render the collection view with card images
     res.render('collection', {
       loggedIn: req.session.loggedIn,
       view: req.params.view,
-      cards: cardImages
+      cards: cards
     });
   } catch (err) {
     console.error('Error retrieving collection:', err);
