@@ -3,7 +3,6 @@ const router = express.Router();
 const withAuth = require('../utils/auth');
 const { CollectionCard, Collection, Card } = require('../models');
 
-// With auth prevents non logged in users from viewing the homepage
 router.get('/', async (req, res) => {
   try {
 
@@ -22,8 +21,6 @@ router.get('/login', async (req, res) => {
 
     // Send over the 'loggedIn' session variable to the 'homepage' template
     res.render('login', {
-      // galleries,
-      // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);

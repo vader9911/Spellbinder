@@ -1,8 +1,6 @@
-//In all routes import whatever modal you are trying to affect
 const express = require('express');
 const router = express.Router();
 const { User , Collection} = require('../../models');
-// const withAuth = require('../utils/auth');
 //This page handles user sign up, login and logout.
 router.get('/', async (req, res) => {
   try {
@@ -23,7 +21,6 @@ router.post('/signup', async (req, res) => {
       
     })
     ;
-    //!
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       console.log(dbUserData.id)
@@ -31,12 +28,7 @@ router.post('/signup', async (req, res) => {
       console.log(req.session.loggedIn)
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
-        //Create session variables based on the logged in user
-    //test
-    // res.status(200).json(dbUserData);
 
-    // req.session.save(() => {
-    //   req.session.loggedIn = true;
 
   } catch (err) {
     res.status(500).json(err);
@@ -44,7 +36,6 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-//Add on to userRoute /login
 //Login
 router.post('/login', async (req, res) => {
   try {
@@ -71,7 +62,6 @@ router.post('/login', async (req, res) => {
     }
 
     // Create session variables based on the logged-in user
-    // Create session variables based on the logged-in user
     req.session.save(async () => {
     req.session.user_id = dbUserData.id;
     req.session.loggedIn = true;
@@ -95,8 +85,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout
-// Logout
 router.post('/logout', (req, res) => {
   // When the user logs out, destroy the session
   if (req.session.loggedIn) {
@@ -108,19 +96,6 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.post('/addcard', (req, res) => {
-  
-}
-)
 
 
 module.exports = router;
-
-//server needs to: (when user pushes add to collection)
-
-//hit the database to see if that card already exists via checking the scryfall uuid
-  //hit a route and check the db to see if the card they want is already in the db
-
-//if it does, create  anew relationship in the relationship table matching the collection to the card.
-
-//if it dosnt exist create the card on the database then create the relationship in the relationship table.
