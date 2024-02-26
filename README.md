@@ -37,7 +37,7 @@
 
 - Bootstrap
 
-- TSDocs
+- JSDocs
 
 ## Questions
   
