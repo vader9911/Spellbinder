@@ -10,7 +10,7 @@
 
 - [Demo](#demo)
 
-- [Technologies Used](#technologies_used)
+- [Technologies Used](#technologies)
 
 - [Questions](#questions)
 
@@ -26,7 +26,7 @@
 
 ## Demo
   
-## Technologies Used 
+## Technologies 
 - Sequelize
 
 -  Express
