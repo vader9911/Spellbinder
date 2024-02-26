@@ -48,7 +48,7 @@ router.get('/collection', withAuth, async (req, res) => {
 
     // Extract card data from each card in the user's collection
     const cards = userCollection?.cards?.map(card => ({
-      id: card.id,
+      scryfall_id: card.scryfall_id,
       card_name: card.card_name,
       img_uri: card.img_uri,
       oracle_text: card.oracle_text,

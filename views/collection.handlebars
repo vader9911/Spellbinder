@@ -2,13 +2,14 @@
     <h2 class="text-center">My Collection</h2>
     <div class="container-fluid container p-4 mx-auto row">
         {{#each cards}}
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 my-2 mx-3">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 my-2 mx-3" data-card-scryfall-id="{{this.scryfall_id}}">
             <img src="{{this.img_uri}}" class="card-img" alt="{{this.card_name}}">
             <h3>{{this.card_name}}</h3>
             <p>Rarity: {{this.rarity}}</p>
+            <button type="button" class="btn btn-danger">Remove From Collection</button>
         </div>
         {{/each}}
     </div >
-
+<script src="/js/collection.js"></script>
 </div>
 
