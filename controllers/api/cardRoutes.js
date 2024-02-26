@@ -28,8 +28,6 @@ router.post('/addtocollection', async (req, res) => {
                 raw: true,
             })
 
-        console.log(userCollection)
-        console.log(card)
         // Add the card to the user's collection
         await CollectionCard.create({
             collection_id: userCollection[0].id,
@@ -39,6 +37,35 @@ router.post('/addtocollection', async (req, res) => {
         res.status(204).end();
     } catch (err) {
         console.error('Error adding card to collection:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}); 
+
+router.post('/removeFromCollection', async (req, res) => {
+    try {
+        // Check if the card exists in the card table
+        let card = await Card.findOne({ where: { scryfall_id: req.body.scryfall_id },raw:true });
+
+        const userId = req.session.user_id;
+        
+        let userCollection = await Collection.findOne({
+                where: {
+                    user_id: userId,
+                },
+                raw: true,
+            })
+        // Remove the card from the user's collection
+        let cardToRemove = await CollectionCard.findOne({
+            where: {
+                card_id: card.id,
+                collection_id: userCollection.id,
+            }        
+        });
+        if (cardToRemove){cardToRemove.destroy()}
+        
+        res.status(204).end();
+    } catch (err) {
+        console.error('Error removing card from collection:', err);
         res.status(500).json({ error: 'Internal server error' });
     }
 }); 
