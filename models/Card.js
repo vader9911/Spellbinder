@@ -32,19 +32,19 @@ Card.init(
             type: DataTypes.TEXT
         },
 
-        multifaced:{
-            type: DataTypes.BOOLEAN
-        },
+        // multifaced:{
+        //     type: DataTypes.BOOLEAN
+        // },
 
         rarity:{
             type: DataTypes.STRING
         },
 
-        card_price: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            //default null?
-        }
+        // card_price: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true,
+        //     //default null?
+        // }
 
     },
 

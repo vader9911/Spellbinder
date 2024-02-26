@@ -1,13 +1,17 @@
-<div class="collection">
+<div class="container-fluid  input-group  px-3 mx-auto my-2">
     <h2>My Collection</h2>
     <ul>
-        {{#each CollectionCards}}
+        {{#each cards}}
         <li>
-            <img src="{{this.Card.img_uri}}" alt="{{this.Card.card_name}}">
-            <h3>{{this.Card.card_name}}</h3>
-            <p>{{this.Card.oracle_text}}</p>
-            <p>Rarity: {{this.Card.rarity}}</p>
+            <img src="{{this.img_uri}}" alt="{{this.card_name}}">
+            <h3>{{this.card_name}}</h3>
+            <p>{{this.oracle_text}}</p>
+            <p>Rarity: {{this.user.rarity}}</p>
         </li>
         {{/each}}
     </ul>
+
+
+
 </div>
+
