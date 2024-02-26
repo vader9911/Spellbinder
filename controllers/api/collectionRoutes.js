@@ -13,22 +13,12 @@ router.get('/', withAuth, async (req, res) =>{
         user_id: req.session.userid
       }
     });
-    res.status(200).redirect('/collection/img');
+    res.status(200).redirect('/collection/');
   } catch(err) {
     res.status(500).json(err);
   };
 });
 
-// // DELETES a collection
-// router.delete('/:id', async (req, res) => {
-//     try {
-//       const collectionData = await Collection.destroy({
-//         where: { id: req.params.id }
-//       });
-//       res.status(200).json(tripData);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+
 
   module.exports = router;
