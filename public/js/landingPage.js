@@ -5,7 +5,6 @@ const cardContainer = document.querySelector("#card-container");
 async function searchCard(){
     let searchText =  searchBar.value;
     const scryfallCards = await scryfallQuery.scryFallSyntaxSearch(searchText)
-    console.log(scryfallCards)
 
     cardContainer.innerHTML = "";
 
@@ -73,10 +72,7 @@ function sendDataToBackend(data) {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        return response.json();
-    })
-    .then(responseData => {
-        console.log('Data sent successfully:', responseData);
+        return ;
     })
     .catch(error => {
         console.error('Error sending data to the backend:', error);
