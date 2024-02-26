@@ -10,7 +10,7 @@
 
 - [Demo](#demo)
 
-- [Technologies Used](#technologiesused)
+- [Technologies Used](#technologies_used)
 
 - [Questions](#questions)
 
@@ -29,15 +29,15 @@
 ## Technologies Used 
 - Sequelize
 
--Express
+-  Express
 
--Handlebars
+- Handlebars
 
--Sessions
+- Sessions
 
--Bootstrap
+- Bootstrap
 
--TSDocs
+- TSDocs
 
 ## Questions
   
