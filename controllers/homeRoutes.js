@@ -46,17 +46,21 @@ router.get('/collection/:view', withAuth, async (req, res) => {
     // Find the user's collection and include associated cards
     const userCollection = await Collection.findOne({
       where: { user_id: req.session.user_id },
-      include: { model: CollectionCard, include: { model: Card } }
+      include: { model: Card, through: CollectionCard }
     });
 
     // Log userCollection to inspect its structure
     console.log('User Collection:', JSON.stringify(userCollection, null, 2));
 
     // Extract img_uri from each card in the user's collection
-    const cardImages = userCollection.collection_card.map(collectionCard => ({
-      id: collectionCard.card.id,
-      img_uri: collectionCard.card.img_uri
-    }));
+    const cardImages = userCollection?.cards?.map(card => ({
+      id: card.id,
+      card_name: card.card_name,
+      img_uri: card.img_uri
+    })) || [];
+
+    // Log the cards array to inspect its contents
+    console.log('Card Images:', cardImages);
 
     // Render the collection view with card images
     res.render('collection', {
