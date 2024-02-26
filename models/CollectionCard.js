@@ -13,10 +13,6 @@ CollectionCard.init(
             primaryKey: true,
         },
 
-        // condition:{
-        //     type: DataTypes.STRING
-        // },
-
         collection_id: {
             type: DataTypes.INTEGER,
             allowNull: false,

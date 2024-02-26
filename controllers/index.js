@@ -8,7 +8,7 @@ const homeRoutes = require('./homeRoutes.js');
 
 router.use('/', homeRoutes);
 //Anything within that folder is at the /api endpoint
-//Becaus eapi is a folder, once again its going to look for an index file inside that 
+//Becaus api is a folder, once again its going to look for an index file inside that 
 router.use('/api', apiRoutes);
 
 module.exports = router;
