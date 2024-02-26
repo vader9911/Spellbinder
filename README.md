@@ -18,11 +18,11 @@
   
 ## Usage
   
--Follow the deployment link at [SpellBinder](https://spellbindertcg-a6e0edcf3480.herokuapp.com/)
+- Follow the deployment link at [SpellBinder](https://spellbindertcg-a6e0edcf3480.herokuapp.com/)
 
--Create an account
+- Create an account
 
--Search for your cards and add them to your collection!
+- Search for your cards and add them to your collection!
 
 ## Demo
   
@@ -43,11 +43,11 @@
   
 For any questions, feel free to contact the developers: 
   
--[Kevin](https://github.com/kev-rod43)
+- [Kevin](https://github.com/kev-rod43)
 
--[Jeff](https://github.com/vader9911)
+- [Jeff](https://github.com/vader9911)
 
--[Gabe](https://github.com/ihateudvrk)
+- [Gabe](https://github.com/ihateudvrk)
 
--[Ethan](https://github.com/76500833)
+- [Ethan](https://github.com/76500833)
  
