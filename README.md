@@ -10,6 +10,8 @@
 
 - [Demo](#demo)
 
+- [Technologies Used](#technologiesused)
+
 - [Questions](#questions)
 
   
@@ -24,6 +26,19 @@
 
 ## Demo
   
+## Technologies Used 
+- Sequelize
+
+-Express
+
+-Handlebars
+
+-Sessions
+
+-Bootstrap
+
+-TSDocs
+
 ## Questions
   
 For any questions, feel free to contact the developers: 
@@ -35,4 +50,4 @@ For any questions, feel free to contact the developers:
 -[Gabe](https://github.com/ihateudvrk)
 
 -[Ethan](https://github.com/76500833)
-  
+ 
