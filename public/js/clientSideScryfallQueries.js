@@ -1,7 +1,7 @@
 /** @module scryfallQuery */
 const scryfallQuery = {
     /**
-     * Takes an array, then returns an matrix in which each col is a max length of desired length
+     * @method splitArr Takes an array, then returns an matrix in which each col is a max length of desired length
      * @param {number} desiredLength maximum size for the sub arrays
      * @param {Array} arrToSplit array being processed
      * @returns {Array}
@@ -19,9 +19,9 @@ const scryfallQuery = {
     },
 
     /**
-     * Hits scryfall's autocomplete endpoint.
-     * @param {string} subString Any valid substring for any card
-     * @returns {array} Array of all magic card names that contain the substring
+     * @method autoComplete Hits scryfall's autocomplete endpoint.
+     * @param {String} subString Any valid substring for any card
+     * @returns {Array} Array of all magic card names that contain the substring
      */
     async autoComplete(subString) {
         let query = `https://api.scryfall.com/cards/autocomplete?q=${subString}`
@@ -30,7 +30,7 @@ const scryfallQuery = {
     },
 
     /**
-     * Hits scryfall's collection endpoint to query many cards at once
+     * @method getMany Hits scryfall's collection endpoint to query many cards at once
      * @param {Array} cardsArr An array of scryfall UUID's
      * @returns {Array} An array of up to date, scryfall card objects
      */
@@ -61,10 +61,10 @@ const scryfallQuery = {
     },
 
     /**
-     * Hits scryfall's search endpoint which allows scryfall syntax.
+     * @method scryFallSyntaxSearch Hits scryfall's search endpoint which allows scryfall syntax.
      * Unlike autocomplete, this returns scryfall card objects
-     * @param {String} string 
-     * @returns {Array} Array of up-to-date string objects
+     * @param {String} string A string with the scryfall syntax
+     * @returns {Array} Array of up-to-date card objects
      */
     async scryFallSyntaxSearch(string) {
         let query = `https://api.scryfall.com/cards/search?q=${string}`;
