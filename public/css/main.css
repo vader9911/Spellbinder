@@ -12709,11 +12709,11 @@ nav .btn {
   margin: 5px;
 }
 
+.add-to-collection-btn {
+  align-self: center;
+}
+
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column !important;
-    align-items: center;
-  }
   .custom-font {
     font-size: 62pt;
   }

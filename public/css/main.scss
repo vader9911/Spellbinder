@@ -96,11 +96,12 @@ nav .btn {
    
 }
 
+.add-to-collection-btn {
+    align-self: center;
+}
+
+
 @media (max-width: 768px) {
-    nav {
-      flex-direction: column !important;
-      align-items: center;
-    }
     .custom-font {
         font-size: 62pt; 
     }
@@ -117,14 +118,3 @@ nav .btn {
     }
     
 }
-
-
-// #search-bar {
-//     margin-left: 400px;
-//     min-width: 400px;
-// }
-// #search-btn {
-//     margin-right: 400px;
-//     min-width: 80px;
-// }
-
