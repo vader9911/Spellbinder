@@ -12676,19 +12676,20 @@ textarea.form-control-lg {
 .custom-font {
   font-family: "Pirata One", sans-serif;
   color: rgb(232, 122, 54);
-  font-size: 58pt;
+  font-size: 88pt;
   text-decoration: underline;
+  -webkit-text-stroke: #222831 2px;
 }
 
 nav .btn {
   text-decoration: none;
-  text-align: center;
+  text-align: start;
   color: #fff;
-  font-size: larger;
+  font-size: x-large;
 }
 
 .btn:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
@@ -12708,12 +12709,22 @@ nav .btn {
   margin: 5px;
 }
 
+.add-to-collection-btn {
+  align-self: center;
+}
+
 @media (max-width: 768px) {
+  .custom-font {
+    font-size: 62pt;
+  }
+}
+@media (max-width: 1156px) {
+  nav {
+    flex-direction: column !important;
+    align-items: center;
+  }
   .custom-container {
     flex-direction: column !important;
     align-items: center;
   }
-}
-#search-bar {
-  margin: 0px 10px;
 }/*# sourceMappingURL=main.css.map */

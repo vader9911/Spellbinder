@@ -36,7 +36,7 @@ function createCardElement(card) {
     // Create "Add to Collection" button
     const addToCollectionButton = document.createElement("button");
     addToCollectionButton.textContent = "Add to Collection";
-    addToCollectionButton.classList.add("btn", "btn-primary", "add-to-collection-btn");
+    addToCollectionButton.classList.add("btn", "btn-primary", "add-to-collection-btn", "mx-auto", "d-block" , "mt-2");
 
     // Add click event listener to the button
     addToCollectionButton.addEventListener('click', function (event) {
