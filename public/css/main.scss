@@ -82,6 +82,7 @@ nav .btn {
 
 .custom-container{
     padding: 0px 10px;
+    
   }
 
 .card-container {
@@ -96,13 +97,25 @@ nav .btn {
 }
 
 @media (max-width: 768px) {
-    .custom-container {
+    nav {
       flex-direction: column !important;
       align-items: center;
     }
     .custom-font {
         font-size: 62pt; 
     }
+}
+
+@media (max-width: 1156px) {
+    nav {
+        flex-direction: column !important;
+        align-items: center;
+      }
+    .custom-container {
+      flex-direction: column !important;
+      align-items: center;
+    }
+    
 }
 
 
